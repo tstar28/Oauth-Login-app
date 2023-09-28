@@ -4,9 +4,9 @@ const cors = require("cors");
 const passport = require("passport");
 const authRoute = require('./routes/auth');
 const app = express();
-
+require('dotenv').config();
 app.use(
-  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+  cookieSession({ name: "session", keys: [process.env.COOKIE_KEY], maxAge: 24 * 60 * 60 * 100 })
 );
 
 app.use(passport.initialize());
